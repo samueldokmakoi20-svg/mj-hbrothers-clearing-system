@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MJ & HBrothers Clearing Management System</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#f2f2f2;
+padding:20px;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+}
+
+.box{
+background:white;
+padding:15px;
+margin-bottom:15px;
+border-radius:10px;
+box-shadow:0 2px 5px rgba(0,0,0,0.2);
+}
+
+h1{
+color:#1e4f91;
+text-align:center;
+}
+
+input,select,button{
+padding:10px;
+margin:5px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+button{
+background:#1e4f91;
+color:white;
+cursor:pointer;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+}
+
+th,td{
+border:1px solid #ddd;
+padding:10px;
+text-align:center;
+}
+
+th{
+background:#1e4f91;
+color:white;
+}
+
+.card{
+display:inline-block;
+width:180px;
+padding:15px;
+margin:5px;
+background:white;
+border-radius:10px;
+text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>MJ & HBrothers Clearing Management System</h1>
+
+<div class="box">
+<div class="card">
+<h3 id="totalTrucks">0</h3>
+<p>Total Trucks</p>
+</div>
+
+<div class="card">
+<h3 id="releasedTrucks">0</h3>
+<p>Released</p>
+</div>
+
+<div class="card">
+<h3 id="pendingTrucks">0</h3>
+<p>Pending</p>
+</div>
+</div>
+
+<div class="box">
+
+<h3>Add Truck</h3>
+
+<input id="truck" placeholder="Truck Number">
+
+<input id="client" placeholder="Client Name">
+
+<select id="status">
+
+<option>Verification</option>
+<option>Sampling</option>
+<option>Tax Approved</option>
+<option>Bureau Paid</option>
+<option>Commerce Paid</option>
+<option>Release Exit</option>
+<option>Released</option>
+
+</select>
+
+<button onclick="addTruck()">
+Save Truck
+</button>
+
+</div>
+
+<div class="box">
+
+<h3>Daily Expenses</h3>
+
+<input id="expenseType"
+placeholder="Expense Type">
+
+<input id="amount"
+type="number"
+placeholder="Amount">
+
+<button onclick="addExpense()">
+Save Expense
+</button>
+
+<p>
+<b>Total Expenses:</b>
+<span id="expenseTotal">0</span>
+</p>
+
+</div>
+
+<div class="box">
+
+<input
+id="search"
+placeholder="Search Truck"
+onkeyup="searchTruck()">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Truck</th>
+<th>Client</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+
+</thead>
+
+<tbody id="tableBody"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script>
+
+let trucks=
+JSON.parse(localStorage.getItem("trucks")) || [];
+
+let expenses=
+JSON.parse(localStorage.getItem("expenses")) || [];
+
+function saveData(){
+
+localStorage.setItem(
+"trucks",
+JSON.stringify(trucks)
+);
+
+localStorage.setItem(
+"expenses",
+JSON.stringify(expenses)
+);
+
+}
+
+function updateDashboard(){
+
+document.getElementById(
+"totalTrucks"
+).innerText=trucks.length;
+
+let released=
+trucks.filter(
+x=>x.status==="Released"
+).length;
+
+document.getElementById(
+"releasedTrucks"
+).innerText=released;
+
+document.getElementById(
+"pendingTrucks"
+).innerText=
+trucks.length-released;
+
+}
+
+function render(){
+
+let body=
+document.getElementById(
+"tableBody"
+);
+
+body.innerHTML="";
+
+trucks.forEach((t,index)=>{
+
+body.innerHTML +=
+`
+<tr>
+<td>${t.truck}</td>
+<td>${t.client}</td>
+<td>${t.status}</td>
+
+<td>
+<button onclick=
+"removeTruck(${index})">
+Delete
+</button>
+</td>
+
+</tr>
+`;
+
+});
+
+let total=
+expenses.reduce(
+(sum,e)=>sum+e.amount,
+0
+);
+
+document.getElementById(
+"expenseTotal"
+).innerText=total;
+
+updateDashboard();
+
+saveData();
+
+}
+
+function addTruck(){
+
+let truck=
+document.getElementById(
+"truck"
+).value;
+
+let client=
+document.getElementById(
+"client"
+).value;
+
+let status=
+document.getElementById(
+"status"
+).value;
+
+if(truck===""){
+alert(
+"Enter truck number"
+);
+return;
+}
+
+trucks.push({
+truck,
+client,
+status
+});
+
+render();
+
+}
+
+function addExpense(){
+
+let type=
+document.getElementById(
+"expenseType"
+).value;
+
+let amount=
+Number(
+document.getElementById(
+"amount"
+).value
+);
+
+expenses.push({
+type,
+amount
+});
+
+render();
+
+}
+
+function removeTruck(index){
+
+trucks.splice(index,1);
+
+render();
+
+}
+
+function searchTruck(){
+
+let value=
+document.getElementById(
+"search"
+).value.toLowerCase();
+
+let rows=
+document.querySelectorAll(
+"#tableBody tr"
+);
+
+rows.forEach(row=>{
+
+row.style.display=
+row.innerText.toLowerCase()
+.includes(value)
+?
+""
+:
+"none";
+
+});
+
+}
+
+render();
+
+</script>
+
+</body></body>
+</html><div class="container">
