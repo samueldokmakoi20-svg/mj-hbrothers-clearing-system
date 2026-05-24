@@ -1,7 +1,7 @@
 {
   "name": "MJ Enterprises Clearing Management System",
   "short_name": "MJ",
-  "description": "Truck clearing and management system for tracking trucks, releases, expenses and client records.",
+  "description": "Truck clearing and management system for tracking trucks, releases, expenses and client records."
   "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
