@@ -19,3 +19,10 @@
     }
   ]
 }
+"screenshots":[
+  {
+    "src":"dashboard.png",
+    "sizes":"720x1600",
+    "type":"image/png"
+  }
+]
