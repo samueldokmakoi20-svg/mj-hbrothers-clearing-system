@@ -1,0 +1,13 @@
+{
+  "background_color": "#582c2c",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "MJ Enterprises Clearing Management System",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "MJ enterprises CMS",
+  "start_url": "/",
+  "theme_color": "#041827",
+  "id": "Mj-enterprises-clearing-system",
+  "description": "Truck clearing and management system for tracking trucks, releases, expenses and client records."
+}
