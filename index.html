@@ -3,7 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <title>MJ & HBrothers Clearing Management System</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
 
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./pwabuilder-sw.js');
+}
+</script>
 <style>
 body{
 font-family:Arial,sans-serif;
