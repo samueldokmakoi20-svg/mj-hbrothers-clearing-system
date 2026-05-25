@@ -1,0 +1,23 @@
+{
+  "background_color": "#9e5e5e",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "MJ &amp; Hbrothers clearing management system",
+  "orientation": "portrait",
+  "scope": "https://github.com/samueldokmakoi20-svg/mj-hbrothers-clearing-system",
+  "short_name": "MJ &amp; Hbrothers CMS",
+  "start_url": "https://github.com/samueldokmakoi20-svg/mj-hbrothers-clearing-system",
+  "theme_color": "#000000",
+  "id": "Mj-hbrothers-clearing-system",
+  "lang": "en",
+  "display_override": [
+    "standalone",
+    "window-controls-overlay",
+    "fullscreen",
+    "minimal-ui",
+    "browser"
+  ],
+  "categories": [
+    "business"
+  ]
+}
