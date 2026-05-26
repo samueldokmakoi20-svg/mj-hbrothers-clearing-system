@@ -232,12 +232,15 @@ document.getElementById(
 }
 function showPage(section){
 
-    document.getElementById("dashboardPage").style.display="none";
-    document.getElementById("trucksPage").style.display="none";
-    document.getElementById("clientsPage").style.display="none";
+  function showPage(section){
 
-    document.getElementById(section + "Page").style.display="block";
-}
+document.getElementById("dashboardPage").style.display="none";
+document.getElementById("trucksPage").style.display="none";
+document.getElementById("clientsPage").style.display="none";
+
+document.getElementById(section + "Page").style.display="block";
+
+} 
 </script>
 
 </body>
