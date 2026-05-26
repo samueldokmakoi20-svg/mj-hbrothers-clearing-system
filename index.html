@@ -127,18 +127,18 @@ placeholder="Truck Number">
 placeholder="Client Name">
 
 <select id="status">
-<option>Pending</option>
-<option>Released</option>
-</select>
+<table>
+<thead>
+<tr>
+<th>Truck</th>
+<th>Client</th>
+<th>Status</th>
+</tr>
+</thead>
 
-<button onclick="saveTruck()">
-Save Truck
-</button>
-
-</div>
-
-<div id="clientsPage" class="box" style="display:none;">
-<h3>Truck Records</h3>
+<tbody id="records">
+</tbody>
+</table>
 
 <thead>
 <tr>
