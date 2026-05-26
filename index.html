@@ -235,8 +235,13 @@ document.getElementById(
 
 }
 function showPage(section){
-    alert(section + " page clicked");
-  }
+
+    document.getElementById("dashboardPage").style.display="none";
+    document.getElementById("trucksPage").style.display="none";
+    document.getElementById("clientsPage").style.display="none";
+
+    document.getElementById(section + "Page").style.display="block";
+}
 </script>
 
 </body>
