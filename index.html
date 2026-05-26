@@ -236,13 +236,31 @@ document.getElementById(
 }
 function showPage(section){
 
-document.getElementById("dashboardPage").style.display="none";
-document.getElementById("trucksPage").style.display="none";
-document.getElementById("clientsPage").style.display="none";
+let pages = [
+    "dashboardPage",
+    "trucksPage",
+    "clientsPage",
+    "cargoPage",
+    "driversPage",
+    "paymentsPage",
+    "reportsPage",
+    "settingsPage"
+];
 
-document.getElementById(section + "Page").style.display="block";
+pages.forEach(page=>{
+    let el = document.getElementById(page);
+    if(el){
+        el.style.display="none";
+    }
+});
 
-} 
+let selected = document.getElementById(section + "Page");
+
+if(selected){
+    selected.style.display="block";
+}
+
+}
 </script>
 
 </body>
