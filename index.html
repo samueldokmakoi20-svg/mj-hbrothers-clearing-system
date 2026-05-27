@@ -277,13 +277,10 @@ let pages = [
 
 pages.forEach(page=>{
     let el = document.getElementById(page);
+
     if(el){
         el.style.display="none";
     }
-});
-
-document.getElementById(section + "Page").style.display="block";
-}
 });
 
 let selected = document.getElementById(section + "Page");
@@ -292,6 +289,7 @@ if(selected){
     selected.style.display="block";
 }
 
+}
 }
 </script>
 
